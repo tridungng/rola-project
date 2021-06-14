@@ -12,16 +12,17 @@ export class FridgeComponent implements OnInit {
 
   newFridge: Fridge;
   fridge: Fridge;
-
   fridgeList: any[] = [];
   count: number = 0;
   fridgeListString: string;
+
+
   itemList: [] = [];
-
-  errorMessage: any;
-
   item: Item;
   postItem: Item;
+  itemCount: number = 0;
+
+  errorMessage: any;
 
   showListFridge: boolean = false;
   buttonName = 'Show your fridges';
@@ -62,6 +63,8 @@ export class FridgeComponent implements OnInit {
       (data) => {
         this.fridge = data;
         this.itemList = data.inventory;
+        this.itemCount = this.itemList.length;
+
         console.log("Fridge in getFridge method: " + JSON.stringify(this.fridge));
         console.log("Id cua fridge tu getFridge :" + this.fridge.id);
         console.log("Fridge inventory in getFridge method: " + this.itemList);

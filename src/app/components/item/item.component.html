@@ -25,15 +25,3 @@
         <tbody>    
     </table>
 </div>    
-<h3>Edit fridge item</h3>
-<div>
-    <form #changeSingleItemForm="ngForm" (submit)="changeSingleItem(changeSingleItemForm)" class="add_form">
-        <input type="text" class="form-control" name="fridgeId" placeholder="Fridge ID" required ngModel>
-        <input type="text" class="form-control" name="itemId" placeholder="Item ID" required ngModel>
-        <input type="text" class="form-control" name="actual" placeholder="Item Actual" ngModel>
-        <input type="text" class="form-control" name="target" placeholder="Item Target" ngModel>
-    
-        <button class="fridge_btn">Submit</button>
-    </form>
-    
-</div>

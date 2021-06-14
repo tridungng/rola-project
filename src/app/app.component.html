@@ -1,87 +1,27 @@
+<!-- BEGIN HEADER DESKTOP-->
+<app-header></app-header>
+<!-- END HEADER DESKTOP-->
+
 <div class="page-wrapper">
 
-    <!-- MENU SIDEBAR-->
-    <!-- <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo">
-            <a href="#">
-                <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive">
-            </a>
-        </div>
-
-        <div class="menu-sidebar-content js-scrollbar1">
-				<nav class="navbar-sidebar">
-					<ul class="list-unstyled navbar-list">
-						<li>
-							<a href="#">Books</a>
-						</li>
-						<li>
-							<a href="#">Coffee Mugs</a>
-						</li>
-						<li>
-							<a href="#">Mouse Pads</a>
-						</li>
-						<li>
-							<a href="#">Luggage Tags</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-
-    </aside> -->
-    <!-- END MENU SIDEBAR-->
-
- 
-        <!-- HEADER DESKTOP-->
-        <header class="header-desktop">
-            <div class="header">
-                <div class="header_logo">
-                    <img class="logo" src="../assets/img/angular_icon.png">
-                    <p class="thick" style="font-family:courier;">Coolschrank</p>
-                </div>
-                <div class="header_icons">
-                    <img class="logo" src="../assets/img/google-plus.png">
-                    <img class="logo" src="../assets/img/google-plus.png">
-                    <img class="logo" src="../assets/img/google-plus.png">
-
-                </div>
-            </div>
-        </header>
-        <!-- END HEADER DESKTOP-->
-
-        <!-- MAIN CONTENT-->
-        <div class="main"> 
-            <div class="sidebar">
-                <div class="sidebar_fridge">
-                    <img src="../assets/img/fridge_icon_final.png" alt="">
-                    <p class="sidebar_p">Fridges</p>
-                </div>
-                <div class="sidebar_item">
-                    <img src="../assets/img/fridge_open_2.png" alt="">
-                    <p class="sidebar_p">Items</p>
-                </div>
-            </div>
-        <app-fridge class="main_container"> 
-        
-        </app-fridge>
-        <app-item class="bottom_container"></app-item>   
-
+  <!-- SIDEBAR AND MAIN-->
+  <div class="main">
+    <div class="sidebar">
+      <div class="sidebar_fridge">
+        <img src="../assets/img/fridge_icon_final.png" alt="" />
+        <p class="sidebar_p">Fridges</p>
+      </div>
+      <div class="sidebar_item">
+        <img src="../assets/img/fridge_open_2.png" alt="" />
+        <p class="sidebar_p">Items</p>
+      </div>
     </div>
-
+    <div class="main_container">
+        <app-main></app-main>
+    </div>
+  </div>
 </div>
 
-<!-- END PAGE CONTAINER-->
+<!-- END SIDEBAR -->
 
-<footer class="footer"><p class="footer__copyright">© 2021 ConChimNhobe</p>
-    <nav class="menu">
-        <ul class="menu__footer">
-            <li>
-                <a href="./index.html" class="menu__main ">Home</a>
-            </li> 
-            <li><a href="./about.html" class="menu__project">About</a></li>
-        </ul>
-        <ul class="menu__socials">
-            <li><a href="https://github.com/" class="menu__socials menu__socials_github"><img src="../assets/img/google-plus.png" alt="GitHub"></a></li>
-            <li><a href="https://facebook/" class="menu__socials menu__socials_facebook"><img src="../assets/img/google-plus.png"></a></li>
-        </ul>
-    </nav>
-</footer>
+<app-footer></app-footer>

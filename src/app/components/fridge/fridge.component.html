@@ -1,4 +1,4 @@
-<div class="fridge_main">
+
   <div class="fridge_top">
     <label class="fridge_title">Generate new fridge:</label>
 
@@ -36,7 +36,7 @@
     </form>
   </div>
 
-  <div *ngIf="itemList.length > 0">
+  <div *ngIf="itemList.length > 0; else isEmpty">
     <table class="table table-bordered">
       <thead class="table-dark">
         <tr>
@@ -44,7 +44,7 @@
           <th>Item name</th>
           <th>Item actual</th>
           <th>Item target</th>
-          <th>Nothing</th>
+          <th>Edit item</th>
         </tr>
       </thead>
       <tbody>
@@ -53,13 +53,14 @@
           <td>{{ item?.name }}</td>
           <td>{{ item?.actual }}</td>
           <td>{{ item?.target }}</td>
-          <td *ngIf="item?.id==!null"><app-modal-form [itemChild]="item" [fridgeChild]="fridge" ></app-modal-form></td>
+          <td><app-modal-form [itemChild]="item" [fridgeChild]="fridge" ></app-modal-form></td>
         </tr>
       </tbody>
-
-      <tbody></tbody>
     </table>
   </div>
+  <ng-template #isEmpty>
+    Your fridge is currently empty
+  </ng-template>
 
 
   <div>
@@ -109,5 +110,6 @@
       />
       <button class="fridge_btn">Add items</button>
     </form>
+    <!-- <app-item></app-item> -->
   </div>
-</div>
+
