@@ -1,0 +1,39 @@
+<h3>Search items in your fridge</h3>
+<form #getSingleItemForm="ngForm" (submit)="getSingleItem(getSingleItemForm)" class="add_form">   
+    <input type="text" class="form-control" name="fridgeId" placeholder="Fridge Id" required ngModel>
+    <input type="text" class="form-control" name="itemId" placeholder="Item Id" required ngModel>
+    <button class="fridge_btn" >Submit</button>
+</form>
+
+<div *ngIf="item">
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Item id</th>
+                <th>Item name</th>
+                <th>Item actual</th>
+                <th>Item target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="item !== undefined">
+                <td>{{ item?.id }}</td>
+                <td>{{ item?.name }}</td>
+                <td *ngIf="item?.actual!=undefined">{{ item?.actual }}</td>
+                <td *ngIf="item?.target!=undefined">{{ item?.target }}</td>
+            </tr>
+        <tbody>    
+    </table>
+</div>    
+<h3>Edit fridge item</h3>
+<div>
+    <form #changeSingleItemForm="ngForm" (submit)="changeSingleItem(changeSingleItemForm)" class="add_form">
+        <input type="text" class="form-control" name="fridgeId" placeholder="Fridge ID" required ngModel>
+        <input type="text" class="form-control" name="itemId" placeholder="Item ID" required ngModel>
+        <input type="text" class="form-control" name="actual" placeholder="Item Actual" ngModel>
+        <input type="text" class="form-control" name="target" placeholder="Item Target" ngModel>
+    
+        <button class="fridge_btn">Submit</button>
+    </form>
+    
+</div>

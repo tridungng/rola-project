@@ -1,0 +1,113 @@
+<div class="fridge_main">
+  <div class="fridge_top">
+    <label class="fridge_title">Generate new fridge:</label>
+
+    <button class="fridge_btn" (click)="addFridge()">Generate</button>
+    <p class="fridge_id">
+      Your new fridge has the id of: <br />{{ newFridge?.id }}
+    </p>
+  </div>
+
+  <button class="button" (click)="toggle()" id="toggleBtn">{{ buttonName }}</button>
+  
+  <ng-container *ngIf="showListFridge" class="container-fridge">
+    <p>You currently have {{ count }} fridges</p>
+    <div class="fridge" *ngFor="let fridgeId of fridgeList">
+      <img class="fridge-img" src="../../../assets/img/fridge_icon_final.png" />
+      <p class="fridge-id">{{ fridgeId }}</p>
+    </div>
+  </ng-container>
+
+  <div>
+    <h3 class="add_items">Open your fridge:</h3>
+    <form #getFridgeForm="ngForm" class="submit_fridge">
+      <input
+        type="text"
+        class="form-control"
+        name="id"
+        placeholder="Enter your fridge id..."
+        required
+        ngModel
+      />
+
+      <button class="fridge_btn" (click)="getFridge(getFridgeForm)">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="itemList.length > 0">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Item id</th>
+          <th>Item name</th>
+          <th>Item actual</th>
+          <th>Item target</th>
+          <th>Nothing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemList">
+          <td>{{ item?.id }}</td>
+          <td>{{ item?.name }}</td>
+          <td>{{ item?.actual }}</td>
+          <td>{{ item?.target }}</td>
+          <td *ngIf="item?.id==!null"><app-modal-form [itemChild]="item" [fridgeChild]="fridge" ></app-modal-form></td>
+        </tr>
+      </tbody>
+
+      <tbody></tbody>
+    </table>
+  </div>
+
+
+  <div>
+    <h3 class="add_items">Add new item to your fridge</h3>
+    <form
+      #addItemForm="ngForm"
+      (submit)="addItem(addItemForm)"
+      class="add_form"
+    >
+      <input
+        type="text"
+        class="form-control"
+        name="fridgeId"
+        placeholder="Fridge Id"
+        required
+        ngModel
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="id"
+        placeholder="Item Id"
+        required
+        ngModel
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        placeholder="Item Name"
+        required
+        ngModel
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="actual"
+        placeholder="Item Actual"
+        ngModel
+      />
+      <input
+        type="text"
+        class="form-control"
+        name="target"
+        placeholder="Item Target"
+        ngModel
+      />
+      <button class="fridge_btn">Add items</button>
+    </form>
+  </div>
+</div>
