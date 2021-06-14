@@ -13,9 +13,11 @@ export class FridgeComponent implements OnInit {
   newFridge: Fridge;
   fridge: Fridge;
   fridgeList: any[] = [];
+  
   count: number = 0;
   fridgeListString: string;
-
+  selectedFridgeId: any;
+  selectedFridge: boolean = false;
 
   itemList: [] = [];
   item: Item;
@@ -58,24 +60,8 @@ export class FridgeComponent implements OnInit {
 
   //GET fridge and its items
   getFridge(form) {
-
-    this.restService.getFridgeService(form.value.id).subscribe(
-      (data) => {
-        this.fridge = data;
-        this.itemList = data.inventory;
-        this.itemCount = this.itemList.length;
-
-        console.log("Fridge in getFridge method: " + JSON.stringify(this.fridge));
-        console.log("Id cua fridge tu getFridge :" + this.fridge.id);
-        console.log("Fridge inventory in getFridge method: " + this.itemList);
-      },
-      (error) => {
-        console.error("error caught in component")
-        this.errorMessage = error;
-        alert(this.errorMessage);
-        throw error;
-      }
-    );
+    this.changeFridgeStatus(form.value.id);
+    
   }
 
   //POST-add item to fridge
@@ -105,5 +91,27 @@ export class FridgeComponent implements OnInit {
 
     if(this.showListFridge) this.buttonName = "Hide all";
     else this.buttonName = "Show your fridges";
+  }
+
+  changeFridgeStatus(fridgeId) {
+    this.selectedFridgeId = fridgeId;
+    this
+    this.restService.getFridgeService(this.selectedFridgeId).subscribe(
+          (data) => {
+            this.fridge = data;
+            this.itemList = data.inventory;
+            this.itemCount = this.itemList.length;
+    
+            console.log("Fridge in getFridge method: " + JSON.stringify(this.fridge));
+            console.log("Id cua fridge tu getFridge :" + this.fridge.id);
+            console.log("Fridge inventory in getFridge method: " + this.itemList);
+          },
+          (error) => {
+            console.error("error caught in component")
+            this.errorMessage = error;
+            alert(this.errorMessage);
+            throw error;
+          }
+        );
   }
 }

@@ -11,6 +11,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { Fridge } from './objects/fridge';
+import { Item } from './objects/item';
+
+const appRoutes: Routes = [
+  { path: 'fridge', component: Fridge },
+  { path: 'item', component: Item }
+]
+
 @NgModule({
   declarations: [
     AppComponent,

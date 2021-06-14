@@ -8,18 +8,8 @@
     </p>
   </div>
 
-  <button class="button" (click)="toggle()" id="toggleBtn">{{ buttonName }}</button>
-  
-  <ng-container *ngIf="showListFridge" class="container-fridge">
-    <p>You currently have {{ count }} fridges</p>
-    <div class="fridge" *ngFor="let fridgeId of fridgeList">
-      <img class="fridge-img" src="../../../assets/img/fridge_icon_final.png" />
-      <p class="fridge-id">{{ fridgeId }}</p>
-    </div>
-  </ng-container>
-
   <div>
-    <h3 class="add_items">Open your fridge:</h3>
+    <h3 class="add_items">Search fridge: </h3>
     <form #getFridgeForm="ngForm" class="submit_fridge">
       <input
         type="text"
@@ -36,7 +26,38 @@
     </form>
   </div>
 
-  <div *ngIf="itemList.length > 0; else isEmpty">
+  <button class="button" (click)="toggle()" id="toggleBtn">{{ buttonName }}</button>
+
+  
+  
+  <!-- <ng-container *ngIf="showListFridge" class="container-fridge"> -->
+  <ng-container *ngIf="showListFridge" class="container">
+    <!-- <p>You currently have {{ count }} fridges</p>
+    <div class="fridge" *ngFor="let fridgeId of fridgeList">
+      
+      <img class="fridge-img" src="../../../assets/img/fridge_icon_final.png" />
+      <p class="fridge-id">{{ fridgeId }}</p>
+    </div> -->
+    <div class="row">
+        <div class="col-3" *ngFor="let fridgeId of fridgeList">
+          <div class="card mb-4" (click)="changeFridgeStatus(fridgeId)">
+          <div class="card card-product-grid">
+            <a href="#" class="img-wrap"> 
+              <img [src]="fridgeId !== selectedFridgeId ? '../../../assets/img/fridge_icon_final.png' : '../../../assets/img/fridge_open_2.png'"> 
+            </a>
+            <figcaption class="info-wrap">
+              <!-- <a href="#" class="title">{{ fridgeId }}</a> -->
+              <p class="title">ID: {{ fridgeId }}</p>
+            </figcaption>
+          </div>
+          </div>
+        </div>
+      </div>
+  </ng-container>
+
+  
+
+  <div *ngIf="itemList.length > 0; else isEmpty" >
     <table class="table table-bordered">
       <thead class="table-dark">
         <tr>
