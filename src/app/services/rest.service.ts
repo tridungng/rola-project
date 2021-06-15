@@ -4,6 +4,7 @@ import { Fridge } from '../objects/fridge';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/internal/operators';
 import { Item } from '../objects/item';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,13 +18,11 @@ const httpOptions = {
 })
 export class RestService {
 
-  private baseUrl = 'https://innovations.rola.com/build/rola/coolschrank/ongoing/application';
-
   constructor(private httpClient: HttpClient) { }
 
   //POST Method
   generateFridgeService(): Observable<any> {
-    const postUrl = `${this.baseUrl}/fridge/`;
+    const postUrl = `${environment.baseUrl}/fridge/`;
 
     return this.httpClient.post<Fridge>(postUrl, httpOptions).pipe(
       retry(1),
@@ -33,7 +32,7 @@ export class RestService {
 
   //GET Method: get fridge and all its items
   getFridgeService(id: string): Observable<any> {
-    const getUrl = `${this.baseUrl}/fridge/${id}`;
+    const getUrl = `${environment.baseUrl}/fridge/${id}`;
     
     return this.httpClient.get<any>(getUrl, httpOptions).pipe(
       retry(1),
@@ -43,7 +42,7 @@ export class RestService {
 
   //POST Method: create new item to desired fridge
   addSingleItemService(id: string, item: Item ): Observable<any> {
-    const postUrl = `${this.baseUrl}/fridge/${id}/item`;
+    const postUrl = `${environment.baseUrl}/fridge/${id}/item`;
 
     return this.httpClient.post<Item>(postUrl, item, httpOptions).pipe(
       retry(1),
@@ -53,7 +52,7 @@ export class RestService {
 
   //GET Method: get one item based on fridgeId and itemId
   getSingleItemService(id: string, itemId: number): Observable<any> {
-    const getUrl = `${this.baseUrl}/fridge/${id}/item/${itemId}`;
+    const getUrl = `${environment.baseUrl}/fridge/${id}/item/${itemId}`;
     
     return this.httpClient.get<Item>(getUrl, httpOptions).pipe(
       retry(1),
@@ -63,7 +62,7 @@ export class RestService {
 
   //POST Method: change one item based on fridgeId and itemId
   changeSingleItemService(id: string, itemId: number, item: any): Observable<any> {
-    const postUrl = `${this.baseUrl}/fridge/${id}/item/${itemId}`;
+    const postUrl = `${environment.baseUrl}/fridge/${id}/item/${itemId}`;
     
     return this.httpClient.post<Item>(postUrl, item, httpOptions).pipe(
       retry(1),

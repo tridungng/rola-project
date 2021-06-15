@@ -6,18 +6,17 @@ import { RestService } from 'src/app/services/rest.service';
 @Component({
   selector: 'app-fridge',
   templateUrl: './fridge.component.html',
-  styleUrls: ['./fridge.component.css']
+  styleUrls: ['./fridge.component.css'],
 })
 export class FridgeComponent implements OnInit {
-
   newFridge: Fridge;
   fridge: Fridge;
   fridgeList: any[] = [];
-  
-  count: number = 0;
+
+  count = 0;
   fridgeListString: string;
   selectedFridgeId: any;
-  selectedFridge: boolean = false;
+  selectedFridge = false;
 
   itemList: [] = [];
   item: Item;
@@ -26,30 +25,28 @@ export class FridgeComponent implements OnInit {
 
   errorMessage: any;
 
-  showListFridge: boolean = false;
+  showListFridge = false;
   buttonName = 'Show your fridges';
-  buttonShow: boolean = true;
+  buttonShow = true;
 
-  constructor(public restService: RestService) { }
+  constructor(public restService: RestService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   //POST-Generate new fridge
   addFridge() {
-
     this.restService.generateFridgeService().subscribe(
       (data) => {
-        console.log("Fridge: " + this.fridge);
-        console.log("Item list in addFridge(): " + this.itemList);
+        console.log('Fridge: ' + this.fridge);
+        console.log('Item list in addFridge(): ' + this.itemList);
 
         this.newFridge = data;
         this.fridgeList.push(data.id),
-        this.fridgeListString = JSON.stringify(this.fridgeList);
-        console.log("fridge list (JSON) " + this.fridgeList);
+          (this.fridgeListString = JSON.stringify(this.fridgeList));
+        console.log('fridge list (JSON) ' + this.fridgeList);
       },
       (error) => {
-        console.error("error caught in component")
+        console.error('error caught in component');
         this.errorMessage = error;
         alert(this.errorMessage);
         throw error;
@@ -58,27 +55,36 @@ export class FridgeComponent implements OnInit {
   }
 
   //GET-Get fridge and its items
+  /**
+   *
+   * @param form
+   */
+
   getFridge(form) {
     this.changeFridgeStatus(form.value.id);
-    
   }
 
   //POST-Add item to fridge
-  addItem(form){
-    const newFormData = { id: form.value.id, name: form.value.name, actual: form.value.actual, target: form.value.target };
+  addItem(form) {
+    const newFormData = {
+      id: form.value.id,
+      name: form.value.name,
+      actual: form.value.actual,
+      target: form.value.target,
+    };
     const fridgeId = form.value.fridgeId;
-    console.log("userInput for fridgeId: " + fridgeId);
-    console.log("userInput for new item: " + newFormData);
-    
+    console.log('userInput for fridgeId: ' + fridgeId);
+    console.log('userInput for new item: ' + newFormData);
+
     this.restService.addSingleItemService(fridgeId, newFormData).subscribe(
-      (data) => { 
-        this.postItem = data,
-        console.log("postItem in addItem: " + this.postItem),
-        alert(`Item: ${newFormData.name} sucessfully added`),
+      (data) => {
+        this.postItem = data;
+        console.log('postItem in addItem: ' + this.postItem);
+        alert(`Item: ${newFormData.name} sucessfully added`);
         form.resetForm();
       },
       (error) => {
-        console.error("error caught in component")
+        console.error('error caught in component');
         this.errorMessage = error;
         alert(this.errorMessage);
         throw error;
@@ -90,30 +96,32 @@ export class FridgeComponent implements OnInit {
     this.selectedFridgeId = fridgeId;
     this.selectedFridge = true;
     this.restService.getFridgeService(this.selectedFridgeId).subscribe(
-          (data) => {
-            this.fridge = data;
-            this.itemList = data.inventory;
-            this.itemCount = this.itemList.length;
-            this.count = this.itemList.length;
-    
-            console.log("fridge in getFridge method: " + JSON.stringify(this.fridge));
-            console.log("fridgeId from getFridge :" + this.fridge.id);
-            console.log("fridge inventory in getFridge method: " + this.itemList);
-          },
-          (error) => {
-            console.error("error caught in component")
-            this.errorMessage = error;
-            alert(this.errorMessage);
-            throw error;
-          }
+      (data) => {
+        this.fridge = data;
+        this.itemList = data.inventory;
+        this.itemCount = this.itemList.length;
+        this.count = this.itemList.length;
+
+        console.log(
+          'fridge in getFridge method: ' + JSON.stringify(this.fridge)
         );
+        console.log('fridgeId from getFridge :' + this.fridge.id);
+        console.log('fridge inventory in getFridge method: ' + this.itemList);
+      },
+      (error) => {
+        console.error('error caught in component');
+        this.errorMessage = error;
+        alert(this.errorMessage);
+        throw error;
+      }
+    );
   }
 
   toggle() {
     this.showListFridge = !this.showListFridge;
     this.buttonShow = !this.buttonShow;
 
-    if(this.showListFridge) this.buttonName = "Hide all";
-    else this.buttonName = "Show your fridges";
+    if (this.showListFridge) this.buttonName = 'Hide all';
+    else this.buttonName = 'Show your fridges';
   }
 }
