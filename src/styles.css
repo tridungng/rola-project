@@ -80,7 +80,6 @@ p.thick {
   padding: 0rem 5rem 5rem 5rem;
   display: inline-block;
   width: 1000px;
-
 }
 .fridge_about {
   border-bottom: none;
@@ -241,25 +240,24 @@ p.sidebar_p {
 }
 
 #buttonShow {
-    align-self: center;
-    margin:auto
+  align-self: center;
+  margin: auto;
 }
-#img_main{
+#img_main {
   max-width: 100%;
   height: auto;
   padding-top: 0px;
   padding-bottom: 27px;
 }
-#img_banner{
+#img_banner {
   max-width: 100%;
   display: block;
   width: 100%;
 }
-.btn_show{
-  display:flex;
+.btn_show {
+  display: flex;
   justify-content: flex-end;
 }
-.link_router{
+.link_router {
   padding-left: 0px;
 }
-

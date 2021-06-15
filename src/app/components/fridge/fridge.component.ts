@@ -14,7 +14,6 @@ export class FridgeComponent implements OnInit {
   fridgeList: any[] = [];
 
   count = 0;
-  fridgeListString: string;
   selectedFridgeId: any;
   selectedFridge = false;
 
@@ -37,13 +36,8 @@ export class FridgeComponent implements OnInit {
   addFridge() {
     this.restService.generateFridgeService().subscribe(
       (data) => {
-        console.log('Fridge: ' + this.fridge);
-        console.log('Item list in addFridge(): ' + this.itemList);
-
         this.newFridge = data;
-        this.fridgeList.push(data.id),
-          (this.fridgeListString = JSON.stringify(this.fridgeList));
-        console.log('fridge list (JSON) ' + this.fridgeList);
+        this.fridgeList.push(data.id) 
       },
       (error) => {
         console.error('error caught in component');
@@ -53,12 +47,6 @@ export class FridgeComponent implements OnInit {
       }
     );
   }
-
-  //GET-Get fridge and its items
-  /**
-   *
-   * @param form
-   */
 
   getFridge(form) {
     this.changeFridgeStatus(form.value.id);
@@ -72,14 +60,11 @@ export class FridgeComponent implements OnInit {
       actual: form.value.actual,
       target: form.value.target,
     };
-    const fridgeId = form.value.fridgeId;
-    console.log('userInput for fridgeId: ' + fridgeId);
-    console.log('userInput for new item: ' + newFormData);
 
+    const fridgeId = form.value.fridgeId;
     this.restService.addSingleItemService(fridgeId, newFormData).subscribe(
       (data) => {
         this.postItem = data;
-        console.log('postItem in addItem: ' + this.postItem);
         alert(`Item: ${newFormData.name} sucessfully added`);
         form.resetForm();
       },
@@ -101,12 +86,6 @@ export class FridgeComponent implements OnInit {
         this.itemList = data.inventory;
         this.itemCount = this.itemList.length;
         this.count = this.itemList.length;
-
-        console.log(
-          'fridge in getFridge method: ' + JSON.stringify(this.fridge)
-        );
-        console.log('fridgeId from getFridge :' + this.fridge.id);
-        console.log('fridge inventory in getFridge method: ' + this.itemList);
       },
       (error) => {
         console.error('error caught in component');

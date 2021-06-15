@@ -20,7 +20,6 @@ export class RestService {
 
   constructor(private httpClient: HttpClient) { }
 
-  //POST Method
   generateFridgeService(): Observable<any> {
     const postUrl = `${environment.baseUrl}/fridge/`;
 
@@ -30,7 +29,6 @@ export class RestService {
     );
   }
 
-  //GET Method: get fridge and all its items
   getFridgeService(id: string): Observable<any> {
     const getUrl = `${environment.baseUrl}/fridge/${id}`;
     
@@ -40,7 +38,6 @@ export class RestService {
     );
   }
 
-  //POST Method: create new item to desired fridge
   addSingleItemService(id: string, item: Item ): Observable<any> {
     const postUrl = `${environment.baseUrl}/fridge/${id}/item`;
 
@@ -50,7 +47,6 @@ export class RestService {
     );
   }
 
-  //GET Method: get one item based on fridgeId and itemId
   getSingleItemService(id: string, itemId: number): Observable<any> {
     const getUrl = `${environment.baseUrl}/fridge/${id}/item/${itemId}`;
     
@@ -60,7 +56,6 @@ export class RestService {
     );
   }
 
-  //POST Method: change one item based on fridgeId and itemId
   changeSingleItemService(id: string, itemId: number, item: any): Observable<any> {
     const postUrl = `${environment.baseUrl}/fridge/${id}/item/${itemId}`;
     

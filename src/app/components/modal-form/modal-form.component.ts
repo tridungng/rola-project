@@ -21,25 +21,7 @@ export class ModalFormComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(
-    private restService: RestService) {}
-  //Add user form actions
-  get f() {
-    return this.registerForm.controls;
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-    //True if all the fields are filled
-    if (this.submitted) {
-      alert('Great!!');
-    }
-  }
+  constructor(private restService: RestService) {}
 
   ngOnInit() {}
 
@@ -59,11 +41,8 @@ export class ModalFormComponent implements OnInit {
       .changeSingleItemService(fridgeId, itemId, newFormData)
       .subscribe(
         (data) => {
-          (this.item = data),
-            console.log('return item: ' + JSON.stringify(this.item)),
-            alert('Change item success'),
-            form.resetForm();
-
+          (this.item = data), alert('Change item success');
+          form.resetForm();
         },
         (error) => {
           console.error('error caught in component');
