@@ -1,16 +1,18 @@
-  <img src="../../../assets/img/big_fridge_image.png" id="img_main" alt="Kitchen Image">
+<img
+  src="../../../assets/img/big_fridge_image.png"
+  id="img_main"
+  alt="Kitchen Image"
+/>
 <div class="fridge_top">
   <p></p>
   <label class="fridge_title">Generate new fridge:</label>
 
   <button class="fridge_btn" (click)="addFridge()">Generate</button>
-  <p class="fridge_id">
-    Your new fridge id: <br />{{ newFridge?.id }}
-  </p>
+  <p class="fridge_id">Your new fridge id: <br />{{ newFridge?.id }}</p>
 </div>
-<div *ngIf="fridgeList.length > 0"> 
-  <button class="btn btn-primary" (click)="toggle()" id="toggleBtn">
-  {{ buttonName }}
+<div *ngIf="fridgeList.length > 0">
+  <button class="btn btn-primary float-right" (click)="toggle()" id="toggleBtn">
+    {{ buttonName }}
   </button>
   <p></p>
 </div>
@@ -30,9 +32,9 @@
           </span>
           <figcaption class="info-wrap">
             <p class="title" id="fridge_id_small">ID: {{ fridgeId }}</p>
-            <div *ngIf="itemList.length == 0 && selectedFridge">
+            <div *ngIf="itemList.length == 0 && selectedFridgeId === fridgeId">
               <p>There is nothing in here</p>
-            </div>    
+            </div>
           </figcaption>
         </div>
       </div>
