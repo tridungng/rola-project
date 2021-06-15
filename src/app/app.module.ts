@@ -10,14 +10,13 @@ import { ModalFormComponent } from './components/modal-form/modal-form.component
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
+import { AboutComponent } from './components/about/about.component';
 
 import { RouterModule, Routes } from '@angular/router';
-import { Fridge } from './objects/fridge';
-import { Item } from './objects/item';
 
 const appRoutes: Routes = [
-  { path: 'fridge', component: Fridge },
-  { path: 'item', component: Item }
+  { path: 'about', component: AboutComponent },
+  { path: '', component: MainComponent }
 ]
 
 @NgModule({
@@ -28,13 +27,15 @@ const appRoutes: Routes = [
     ModalFormComponent,
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' })
 
   ],
   providers: [],

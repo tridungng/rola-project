@@ -28,6 +28,7 @@ export class FridgeComponent implements OnInit {
 
   showListFridge: boolean = false;
   buttonName = 'Show your fridges';
+  buttonShow: boolean = true;
 
   constructor(public restService: RestService) { }
 
@@ -40,14 +41,12 @@ export class FridgeComponent implements OnInit {
     this.restService.generateFridgeService().subscribe(
       (data) => {
         console.log("Fridge: " + this.fridge);
-        console.log("Item list trong generate: " + this.itemList);
-        console.log("return data from generating fridge method: " + data);
+        console.log("Item list in addFridge(): " + this.itemList);
+
         this.newFridge = data;
         this.fridgeList.push(data.id),
         this.fridgeListString = JSON.stringify(this.fridgeList);
-        this.count = this.fridgeList.length;
         console.log("fridge list (JSON) " + this.fridgeList);
-
       },
       (error) => {
         console.error("error caught in component")
@@ -58,13 +57,13 @@ export class FridgeComponent implements OnInit {
     );
   }
 
-  //GET fridge and its items
+  //GET-Get fridge and its items
   getFridge(form) {
     this.changeFridgeStatus(form.value.id);
     
   }
 
-  //POST-add item to fridge
+  //POST-Add item to fridge
   addItem(form){
     const newFormData = { id: form.value.id, name: form.value.name, actual: form.value.actual, target: form.value.target };
     const fridgeId = form.value.fridgeId;
@@ -74,8 +73,9 @@ export class FridgeComponent implements OnInit {
     this.restService.addSingleItemService(fridgeId, newFormData).subscribe(
       (data) => { 
         this.postItem = data,
-        console.log("postItem trong subsribe method: " + this.postItem),
-        alert(`Item: ${newFormData.name} sucessfully added`)
+        console.log("postItem in addItem: " + this.postItem),
+        alert(`Item: ${newFormData.name} sucessfully added`),
+        form.resetForm();
       },
       (error) => {
         console.error("error caught in component")
@@ -86,25 +86,19 @@ export class FridgeComponent implements OnInit {
     );
   }
 
-  toggle() {
-    this.showListFridge = !this.showListFridge;
-
-    if(this.showListFridge) this.buttonName = "Hide all";
-    else this.buttonName = "Show your fridges";
-  }
-
   changeFridgeStatus(fridgeId) {
     this.selectedFridgeId = fridgeId;
-    this
+    this.selectedFridge = true;
     this.restService.getFridgeService(this.selectedFridgeId).subscribe(
           (data) => {
             this.fridge = data;
             this.itemList = data.inventory;
             this.itemCount = this.itemList.length;
+            this.count = this.itemList.length;
     
-            console.log("Fridge in getFridge method: " + JSON.stringify(this.fridge));
-            console.log("Id cua fridge tu getFridge :" + this.fridge.id);
-            console.log("Fridge inventory in getFridge method: " + this.itemList);
+            console.log("fridge in getFridge method: " + JSON.stringify(this.fridge));
+            console.log("fridgeId from getFridge :" + this.fridge.id);
+            console.log("fridge inventory in getFridge method: " + this.itemList);
           },
           (error) => {
             console.error("error caught in component")
@@ -113,5 +107,13 @@ export class FridgeComponent implements OnInit {
             throw error;
           }
         );
+  }
+
+  toggle() {
+    this.showListFridge = !this.showListFridge;
+    this.buttonShow = !this.buttonShow;
+
+    if(this.showListFridge) this.buttonName = "Hide all";
+    else this.buttonName = "Show your fridges";
   }
 }
