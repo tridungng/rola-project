@@ -83,9 +83,8 @@ p.thick {
 
 }
 .fridge_about {
-  border: brown solid 5px;
   border-bottom: none;
-  padding: 0rem 5rem 14rem 5rem;
+  padding: 2rem 5rem 23.2rem 5rem;
   display: inline-block;
 }
 .fridge_top {
@@ -259,5 +258,8 @@ p.sidebar_p {
 .btn_show{
   display:flex;
   justify-content: flex-end;
+}
+.link_router{
+  padding-left: 0px;
 }
 
