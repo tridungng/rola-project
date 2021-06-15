@@ -72,6 +72,7 @@ export class FridgeComponent implements OnInit {
         console.error('error caught in component');
         this.errorMessage = error;
         alert(this.errorMessage);
+        form.resetForm();
         throw error;
       }
     );
