@@ -135,7 +135,7 @@ p.thick {
   flex-wrap: wrap;
   flex-direction: row;
   row-gap: 3rem;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   max-width: 100%;
   max-height: 100%;

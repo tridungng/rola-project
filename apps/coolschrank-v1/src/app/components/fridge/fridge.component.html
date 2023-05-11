@@ -3,7 +3,7 @@
   <label class="fridge_title">Generate new fridge:</label>
 
   <button class="fridge_btn" (click)="addFridge()">Generate</button>
-  <p class="fridge_id">Your new fridge id: <br />{{ newFridge?.id }}</p>
+  <p class="fridge_id">Your new fridge id: <br />{{ newFridge.id }}</p>
 </div>
 <div class="btn_show" *ngIf="fridgeList.length > 0">
   <button
