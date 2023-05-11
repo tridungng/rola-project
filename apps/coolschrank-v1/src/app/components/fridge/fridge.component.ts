@@ -48,12 +48,15 @@ export class FridgeComponent implements OnInit {
     );
   }
 
-  getFridge(form) {
+  getFridge(form: { value: { id: any } }): void {
     this.changeFridgeStatus(form.value.id);
   }
 
   //POST-Add item to fridge
-  addItem(form) {
+  addItem(form: {
+    value: { id: any; name: any; actual: any; target: any; fridgeId: any };
+    resetForm: () => void;
+  }): void {
     const newFormData = {
       id: form.value.id,
       name: form.value.name,
@@ -78,7 +81,7 @@ export class FridgeComponent implements OnInit {
     );
   }
 
-  changeFridgeStatus(fridgeId) {
+  changeFridgeStatus(fridgeId: any) {
     this.selectedFridgeId = fridgeId;
     this.selectedFridge = true;
     this.restService.getFridgeService(this.selectedFridgeId).subscribe(

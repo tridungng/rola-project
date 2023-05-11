@@ -1,8 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { RestService } from 'src/app/services/rest.service';
 import { ModalFormComponent } from './modal-form.component';
+import { RestService } from '../../services/rest.service';
 
 describe('ModalFormComponent', () => {
   let component: ModalFormComponent;

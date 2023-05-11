@@ -6,9 +6,10 @@ import {
 } from '@angular/common/http';
 import { Fridge } from '../objects/fridge';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/internal/operators';
+
 import { Item } from '../objects/item';
 import { environment } from '../../environments/environment';
+import { catchError, retry } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({

@@ -78,21 +78,6 @@
         "browserTarget": "coolschrank-v1:build"
       }
     },
-    "test": {
-      "executor": "@angular-devkit/build-angular:karma",
-      "options": {
-        "main": "apps/coolschrank-v1/src/test.ts",
-        "polyfills": "apps/coolschrank-v1/src/polyfills.ts",
-        "tsConfig": "apps/coolschrank-v1/tsconfig.spec.json",
-        "karmaConfig": "apps/coolschrank-v1/karma.conf.js",
-        "assets": [
-          "apps/coolschrank-v1/src/favicon.ico",
-          "apps/coolschrank-v1/src/assets"
-        ],
-        "styles": ["apps/coolschrank-v1/src/styles.css"],
-        "scripts": []
-      }
-    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "options": {
@@ -100,6 +85,14 @@
           "apps/coolschrank-v1/**/*.ts",
           "apps/coolschrank-v1/**/*.html"
         ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/coolschrank-v1"],
+      "options": {
+        "jestConfig": "apps/coolschrank-v1/jest.config.ts",
+        "passWithNoTests": true
       }
     }
   }
