@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 export class ItemComponent implements OnInit {
   item: Item;
   errorMessage: any;
+
   constructor(public restService: RestService) {}
 
   ngOnInit(): void {}
@@ -20,7 +21,7 @@ export class ItemComponent implements OnInit {
     const itemId = form.value.itemId;
     this.restService.getSingleItemService(fridgeId, itemId).subscribe(
       (data) => {
-        (this.item = data);
+        this.item = data;
         form.resetForm();
       },
       (error) => {

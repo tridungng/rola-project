@@ -112,9 +112,21 @@
               "devServerTarget": "coolschrank-v1:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "coolschrank-v1"
+  "defaultProject": "coolschrank-v1",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

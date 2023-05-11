@@ -37,7 +37,7 @@ export class FridgeComponent implements OnInit {
     this.restService.generateFridgeService().subscribe(
       (data) => {
         this.newFridge = data;
-        this.fridgeList.push(data.id) 
+        this.fridgeList.push(data.id);
       },
       (error) => {
         console.error('error caught in component');

@@ -16,8 +16,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
-  { path: '', component: MainComponent }
-]
+  { path: '', component: MainComponent },
+];
 
 @NgModule({
   declarations: [
@@ -28,17 +28,16 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' })
-
+    RouterModule.forRoot(appRoutes, { scrollPositionRestoration: 'enabled' }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

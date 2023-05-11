@@ -1,16 +1,19 @@
 .table {
   text-align: center;
 }
+
 h3 {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 30px;
 }
+
 h3.add_items {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 30px;
 }
+
 p.thick {
   font-weight: bold;
 }
@@ -18,9 +21,11 @@ p.thick {
 .header-desktop {
   width: 100%;
 }
+
 .header_logo {
   margin-left: 120px;
 }
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -28,6 +33,7 @@ p.thick {
   margin-left: 30rem;
   margin-right: 30rem;
 }
+
 .header {
   display: flex;
   flex-direction: row;
@@ -39,11 +45,13 @@ p.thick {
   margin: auto;
   box-sizing: border-box;
 }
+
 .logo {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
+
 .main {
   display: grid;
   grid-template-columns: 0.5fr 2.5fr;
@@ -81,20 +89,24 @@ p.thick {
   display: inline-block;
   width: 1000px;
 }
+
 .fridge_about {
   border-bottom: none;
   padding: 2rem 5rem 23.2rem 5rem;
   display: inline-block;
 }
+
 .fridge_top {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .fridge_title {
   font-size: 5rem;
 }
+
 .fridge_btn {
   background-color: cornsilk;
   width: 30%;
@@ -102,31 +114,36 @@ p.thick {
   border-radius: 5%;
   height: 50px;
 }
+
 .fridge_btn:hover {
   background-color: darkgreen;
 }
+
 .fridge_id {
   margin: 2rem auto;
   font-size: 1.5rem;
   text-align: center;
 }
+
 #fridge_id_small {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
 .container-fridge {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  row-gap: 3 rem;
+  row-gap: 3rem;
   justify-content: start;
   align-items: center;
   max-width: 100%;
   max-height: 100%;
   margin: auto;
-  margin-right: 5 rem;
+  margin-right: 5rem;
   align-content: flex-start;
 }
+
 .fridge-img {
   width: 40%;
   object-fit: cover;
@@ -137,6 +154,7 @@ p.thick {
   align-items: center;
   text-align: center;
 }
+
 .submit_fridge {
   display: flex;
   flex-direction: row;
@@ -147,9 +165,11 @@ p.thick {
   margin-bottom: 70px;
   margin-left: 150px;
 }
+
 .add_items {
   margin: 2rem;
 }
+
 .add_form {
   width: 60%;
   margin: auto;
@@ -158,12 +178,15 @@ p.thick {
   justify-content: center;
   align-items: center;
 }
+
 .add_form:nth-of-type(1) {
   margin-bottom: 2rem;
 }
+
 .add_form input {
   margin: 0.5rem auto;
 }
+
 .footer {
   margin: 0 auto;
   display: flex;
@@ -174,6 +197,7 @@ p.thick {
   min-height: 80px;
   border: brown solid 5px;
 }
+
 .footer__copyright {
   font-family: Roboto, sans-serif;
   color: #b6bcbf;
@@ -181,24 +205,28 @@ p.thick {
   font-size: 16px;
   line-height: 22px;
 }
+
 .menu {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
 }
+
 .menu__footer {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   width: 80%;
 }
+
 .menu__socials {
   display: flex;
   flex-direction: row;
   text-decoration: none;
   list-style-type: none;
 }
+
 .menu__main {
   text-decoration: none;
   list-style-type: none;
@@ -210,6 +238,7 @@ p.thick {
   padding-bottom: 28px;
   color: black;
 }
+
 .menu__project {
   text-decoration: none;
   list-style-type: none;
@@ -221,16 +250,19 @@ p.thick {
   padding-bottom: 28px;
   color: black;
 }
+
 img {
   max-width: 30%;
   height: auto;
   padding-top: 10px;
 }
+
 p.sidebar_p {
   margin-left: 0;
   margin-right: 0;
   text-align: center;
 }
+
 .vertical-center {
   margin: 0;
   position: absolute;
@@ -243,21 +275,25 @@ p.sidebar_p {
   align-self: center;
   margin: auto;
 }
+
 #img_main {
   max-width: 100%;
   height: auto;
   padding-top: 0px;
   padding-bottom: 27px;
 }
+
 #img_banner {
   max-width: 100%;
   display: block;
   width: 100%;
 }
+
 .btn_show {
   display: flex;
   justify-content: flex-end;
 }
+
 .link_router {
   padding-left: 0px;
 }

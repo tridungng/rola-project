@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Fridge } from 'src/app/objects/fridge';
 import { Item } from 'src/app/objects/item';
 import { RestService } from 'src/app/services/rest.service';
