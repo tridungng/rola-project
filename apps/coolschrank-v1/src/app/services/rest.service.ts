@@ -8,7 +8,7 @@ import { Fridge } from '../objects/fridge';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/internal/operators';
 import { Item } from '../objects/item';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({

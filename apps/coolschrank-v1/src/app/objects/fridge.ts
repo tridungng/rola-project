@@ -1,4 +1,4 @@
-import { Item } from 'src/app/objects/item';
+import { Item } from './item';
 
 export class Fridge {
   id: string;
