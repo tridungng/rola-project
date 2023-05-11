@@ -1,6 +1,7 @@
-# CoolschrankV2
+# Coolschrank-V1
+NETLIFY deployment: https://main--inquisitive-alpaca-e768bb.netlify.app/
+VERCEL deployment: https://rola-project-llxk.vercel.app/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
 
 ## Development server
 
