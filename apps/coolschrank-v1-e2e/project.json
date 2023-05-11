@@ -1,0 +1,29 @@
+{
+  "name": "coolschrank-v1-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/coolschrank-v1-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@angular-devkit/build-angular:protractor",
+      "options": {
+        "protractorConfig": "apps/coolschrank-v1-e2e/protractor.conf.js",
+        "devServerTarget": "coolschrank-v1:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "coolschrank-v1:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/coolschrank-v1-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "implicitDependencies": ["coolschrank-v1"],
+  "tags": []
+}
