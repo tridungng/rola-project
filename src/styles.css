@@ -55,7 +55,7 @@ p.thick {
 .main {
   display: grid;
   grid-template-columns: 0.5fr 2.5fr;
-  gap: 0px 0px;
+  gap: 0 0;
   grid-auto-flow: row;
   grid-template-areas:
     "sidebar main_container"
@@ -85,7 +85,7 @@ p.thick {
 .fridge_main {
   border: brown solid 5px;
   border-bottom: none;
-  padding: 0rem 5rem 5rem 5rem;
+  padding: 0 5rem 5rem 5rem;
   display: inline-block;
   width: 1000px;
 }
@@ -139,8 +139,7 @@ p.thick {
   align-items: center;
   max-width: 100%;
   max-height: 100%;
-  margin: auto;
-  margin-right: 5rem;
+  margin: auto 5rem auto auto;
   align-content: flex-start;
 }
 
@@ -279,7 +278,7 @@ p.sidebar_p {
 #img_main {
   max-width: 100%;
   height: auto;
-  padding-top: 0px;
+  padding-top: 0;
   padding-bottom: 27px;
 }
 
@@ -295,5 +294,5 @@ p.sidebar_p {
 }
 
 .link_router {
-  padding-left: 0px;
+  padding-left: 0;
 }

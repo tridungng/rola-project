@@ -17,7 +17,7 @@ export class FridgeComponent implements OnInit {
   selectedFridgeId: any;
   selectedFridge = false;
 
-  itemList: [] = [];
+  itemList: Item[] = [];
   item: Item;
   postItem: Item;
   itemCount: number = 0;
@@ -65,7 +65,7 @@ export class FridgeComponent implements OnInit {
     this.restService.addSingleItemService(fridgeId, newFormData).subscribe(
       (data) => {
         this.postItem = data;
-        alert(`Item: ${newFormData.name} sucessfully added`);
+        alert(`Item: ${newFormData.name} successfully added`);
         form.resetForm();
       },
       (error) => {
